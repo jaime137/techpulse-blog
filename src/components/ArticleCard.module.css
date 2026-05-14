@@ -1,15 +1,18 @@
 .card {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: calc(var(--radius) * 2);
+  border-radius: var(--radius);
   overflow: hidden;
-  transition: box-shadow 0.25s, transform 0.25s;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
+  box-shadow: var(--shadow-sm);
 }
+
 .card:hover {
   box-shadow: var(--shadow-hover);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  border-color: rgba(255, 107, 53, 0.2);
 }
 
 .imgWrap {
@@ -17,26 +20,33 @@
   display: block;
   overflow: hidden;
   aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
 }
+
 .imgWrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.card:hover .imgWrap img { transform: scale(1.04); }
+
+.card:hover .imgWrap img {
+  transform: scale(1.08);
+}
+
 .imgWrap .tag {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 16px;
+  left: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .body {
-  padding: 20px;
+  padding: 24px;
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .meta {
@@ -47,6 +57,7 @@
   color: var(--muted);
   flex-wrap: wrap;
 }
+
 .category {
   font-weight: 600;
   color: var(--black);
@@ -54,17 +65,28 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
-.dot { opacity: 0.4; }
+
+.dot {
+  opacity: 0.4;
+}
 
 .title {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.35;
   margin: 0;
+  letter-spacing: -0.01em;
 }
-.title a { color: var(--black); }
-.title a:hover { color: var(--accent); }
+
+.title a {
+  color: var(--black);
+  transition: color 0.3s;
+}
+
+.title a:hover {
+  color: var(--accent);
+}
 
 .excerpt {
   font-size: 0.88rem;
@@ -85,11 +107,15 @@
   padding-top: 12px;
   border-top: 1px solid var(--border);
 }
+
 .price {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--black);
+  font-weight: 800;
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .readMore {
@@ -98,9 +124,19 @@
   color: var(--accent);
   transition: gap 0.15s;
 }
-.readMore:hover { text-decoration: underline; }
 
-/* Large card variant */
-.large .title { font-size: 1.3rem; }
-.large .excerpt { -webkit-line-clamp: 4; }
-.large .imgWrap { aspect-ratio: 16/10; }
+.readMore:hover {
+  text-decoration: underline;
+}
+
+.large .title {
+  font-size: 1.3rem;
+}
+
+.large .excerpt {
+  -webkit-line-clamp: 4;
+}
+
+.large .imgWrap {
+  aspect-ratio: 16/10;
+}
