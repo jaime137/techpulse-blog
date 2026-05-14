@@ -2,7 +2,7 @@
 //  TECHPULSE – BASE DE DATOS DE CONTENIDO
 // ─────────────────────────────────────────────
 
-const AFFILIATE_TAG = 'techpulse-21';
+const AFFILIATE_TAG = 'jaime420-21'; 
 
 export const buildAmazonLink = (asin) =>
   `https://www.amazon.es/dp/${asin}?tag=${AFFILIATE_TAG}&linkCode=ogi&th=1&psc=1`;
